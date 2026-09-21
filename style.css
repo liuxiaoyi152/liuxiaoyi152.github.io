@@ -1,0 +1,92 @@
+/*
+  style.css
+  Calm blue and cream palette, responsive, accessible styles.
+  Change colors, spacing, and font sizes below to customise.
+*/
+
+:root{
+  /* Color palette - change these to customize site colors */
+  --bg: #f7f2eb; /* cream background */
+  --card: #ffffff;
+  --primary: #3a6ea5; /* calm blue */
+  --primary-700: #335f8f;
+  --text: #113049; /* dark blue text */
+  --muted: #556b7a;
+  --accent: #8fb7ff;
+
+  /* Spacing and type scale */
+  --container: 1000px;
+  --gap: 1rem;
+  --radius: 10px;
+}
+
+/* Basic reset and readable defaults */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{max-width:var(--container);margin:0 auto;padding:1rem}
+
+/* Header / Navigation */
+.site-header{background:linear-gradient(180deg,var(--card),transparent);border-bottom:1px solid rgba(17,48,73,0.06)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;gap:var(--gap)}
+.brand{font-weight:700;color:var(--primary);text-decoration:none;font-size:1.1rem}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.nav-list a{color:var(--text);text-decoration:none;padding:.35rem .5rem;border-radius:6px}
+.nav-list a:focus,.nav-list a:hover{outline:none;background:var(--accent);color:var(--primary-700)}
+
+/* Keyboard focus visible for accessibility */
+a:focus{outline:3px solid Color-mix(in srgb, var(--primary) 40%, white);outline-offset:3px}
+
+/* Hero */
+.hero{padding:4rem 0;background:linear-gradient(180deg, rgba(58,110,165,0.06), transparent)}
+.hero-inner{max-width:720px}
+.hero h1{margin:0 0 .5rem;font-size:clamp(1.6rem, 3.5vw, 2.5rem)}
+.lead{font-size:1.05rem;color:var(--muted);margin-top:0}
+.note{color:var(--muted);font-size:.95rem}
+
+/* Sections */
+section{padding:2rem 0}
+h2{font-size:1.25rem;margin:0 0 .75rem}
+
+.about p{max-width:70ch}
+
+/* Skills list */
+.skills-list{list-style:disc;margin-left:1.25rem}
+
+/* Projects grid */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.project-card{background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:0 1px 4px rgba(17,48,73,0.06)}
+.project-card h3{margin-top:0}
+.btn{display:inline-block;margin-top:.5rem;padding:.4rem .6rem;background:var(--primary);color:#fff;text-decoration:none;border-radius:6px}
+.btn:focus{outline:3px solid Color-mix(in srgb, var(--primary) 40%, white);outline-offset:3px}
+
+/* Contact */
+.contact a{color:var(--primary);text-decoration:underline}
+
+/* Footer */
+.site-footer{border-top:1px solid rgba(17,48,73,0.06);padding:1rem 0;color:var(--muted)}
+
+/* Responsive layout for smaller screens */
+@media (max-width:900px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  .site-header .container{padding:0}
+  .nav-list{display:none} /* keep it simple; small screens see sections via links or scrolling */
+  .hero{padding:2.5rem 0}
+  .projects-grid{grid-template-columns:1fr}
+}
+
+/* Short comments for beginners: where to change things
+   - To change the main colors: edit variables under :root (e.g. --primary, --bg).
+   - To change spacing: update --gap and --container in :root.
+   - To change font sizes: edit .hero h1, h2, and .lead rules.
+*/
